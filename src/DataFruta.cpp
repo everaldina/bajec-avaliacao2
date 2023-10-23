@@ -125,6 +125,7 @@ class ListaDatas  : public Lista{
 
 		tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
 
+		ordena();
 		cout << "Mediana: " << lista[index].toString() << endl;
 	}
 	
