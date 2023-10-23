@@ -236,6 +236,23 @@ class ListaIdades: public Lista  {
 			cout << i << endl;
 		}
 	}
+
+	bool compIdade(int i1, int i2) {
+		return i1 < i2;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compIdade);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Idades:" << endl;
+		for (int i : lista) {
+			cout << i << endl;
+		}
+	}
 };
  
 int main () {
