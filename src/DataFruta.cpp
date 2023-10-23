@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 
 using namespace std;
 
@@ -141,29 +142,44 @@ class ListaDatas  {
 	}
 };
 
-class ListaSalarios  {
+class ListaSalarios : public Lista {
 	vector<float> lista;
 	
 	public:
-	
-	/*
-	O método abaixo pergunta ao usuários quantos
-	elementos vão existir na lista e depois
-	solicita a digitação de cada um deles
-	*/	
+
 	void entradaDeDados() {
-		
+		cout << "Quantos elementos vão existir na lista? ";
+		cout << fixed << setprecision(2); //para mostrar sempre 2 casas decimais
+		int n;
+		cin >> n;
+		for (int i=0; i<n; i++) {
+			cout << "Digite o " << i+1 << "o. elemento: ";
+			float x;
+			cin >> x;
+			this->lista.push_back(x);
+		}
+		this->ordena();
 	}
 			
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
+		int meio = this->lista.size()/2;
+		if (this->lista.size()%2==0) {
+			cout << "A mediana é:" << endl;
+			cout << (this->lista[meio-1] + this->lista[meio])/2 << endl;
+		} else {
+			cout << this->lista[meio] << endl;
+		}
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar o menor dos salarios" << endl;
+		//como a lista ja ta ordenada, o menor é o primeiro
+		cout << "O menor salario é:";
+		cout << this->lista[0] << endl;
 	}
 	void mostraMaior() {
-		cout << "aqui vai mostrar o maior dos salarios" << endl;
+		//como a lista ja ta ordenada, o maior é o ultimo
+		cout << "O maior salario é:";
+		cout << this->lista[this->lista.size()-1] << endl;
 	}
 
 	static bool compSalario(float s1, float s2) {
