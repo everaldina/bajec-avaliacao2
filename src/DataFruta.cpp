@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -139,6 +140,7 @@ class ListaSalarios : public Lista {
 	*/	
 	void entradaDeDados() {
 		cout << "Quantos elementos vão existir na lista? ";
+		cout << fixed << setprecision(2); //para mostrar sempre 2 casas decimais
 		int n;
 		cin >> n;
 		for (int i=0; i<n; i++) {
