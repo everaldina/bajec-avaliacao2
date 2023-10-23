@@ -128,6 +128,9 @@ class ListaSalarios : public Lista {
 	
 	void mostraMenor() {
 		cout << "Aqui vai mostrar o menor dos salarios" << endl;
+		//como a lista ja ta ordenada, o menor é o primeiro
+		cout << "O menor salario é:";
+		cout << this->lista[0] << endl;
 	}
 	void mostraMaior() {
 		cout << "aqui vai mostrar o maior dos salarios" << endl;
