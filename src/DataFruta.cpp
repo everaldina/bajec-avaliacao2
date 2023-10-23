@@ -41,7 +41,7 @@ class Lista {
 	virtual void mostraMaior() =0;
 };
 
-class ListaNomes {
+class ListaNomes : public Lista{
 	vector<string> lista;
 	
 	public:
@@ -52,7 +52,16 @@ class ListaNomes {
 	solicita a digitação de cada um deles
 	*/	
 	void entradaDeDados() {
-		lista.push_back("Teste");
+		int n;
+		string nome;
+
+		cout << "Quantos nomes você quer digitar?" << endl;
+		cin >> n;
+		for (int i=0; i<n; i++){
+			cout << "Digite o nome " << i+1 << endl;
+			getline(cin, nome);
+			lista.push_back(nome);
+		}
 	}
 		
 	void mostraMediana() {
