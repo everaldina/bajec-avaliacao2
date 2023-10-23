@@ -44,136 +44,6 @@ class Lista {
 	virtual void listarEmOrdem() = 0;
 };
 
-class ListaNomes: public Lista {
-	vector<string> lista;
-	
-	public:
-	
-	/*
-	O método abaixo pergunta ao usuários quantos
-	elementos vão existir na lista e depois
-	solicita a digitação de cada um deles
-	*/	
-	void entradaDeDados() {
-		lista.push_back("Teste");
-	}
-		
-	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
-	}
-	
-	void mostraMenor() {
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
-	}
-	void mostraMaior() {
-		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
-	}
-
-	static bool compNome(string s1, string s2) {
-		return s1 < s2;
-	}
-
-	void ordena() {
-		sort(lista.begin(), lista.end(), compNome);
-	}
-
-	void listarEmOrdem() {
-		ordena();
-
-		cout << "Nomes:" << endl;
-		for (string s : lista) {
-			cout << s << endl;
-		}
-	}
-};
-
-class ListaDatas: public Lista  {
-	vector<Data> lista;
-	
-	public:
-		
-	/*
-	O método abaixo pergunta ao usuários quantos
-	elementos vão existir na lista e depois
-	solicita a digitação de cada um deles
-	*/	
-	void entradaDeDados() {
-		
-	}
-	
-	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
-	}
-	
-	void mostraMenor() {
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
-	}
-	void mostraMaior() {
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
-	}
-
-	static bool compData(Data d1, Data d2) {
-		return Data::compara(d1, d2) < 0;
-	}
-
-	void ordena() {
-		sort(lista.begin(), lista.end(), compData);
-	}
-
-	void listarEmOrdem() {
-		ordena();
-
-		cout << "Datas:" << endl;
-		for (Data d : lista) {
-			cout << d.toString() << endl;
-		}
-	}
-};
-
-class ListaSalarios: public Lista  {
-	vector<float> lista;
-	
-	public:
-	
-	/*
-	O método abaixo pergunta ao usuários quantos
-	elementos vão existir na lista e depois
-	solicita a digitação de cada um deles
-	*/	
-	void entradaDeDados() {
-		
-	}
-			
-	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
-	}
-	
-	void mostraMenor() {
-		cout << "Aqui vai mostrar o menor dos salarios" << endl;
-	}
-	void mostraMaior() {
-		cout << "aqui vai mostrar o maior dos salarios" << endl;
-	}
-
-	static bool compSalario(float s1, float s2) {
-		return s1 < s2;
-	}
-
-	void ordena() {
-		sort(lista.begin(), lista.end(), compSalario);
-	}
-
-	void listarEmOrdem() {
-		ordena();
-
-		cout << "Salarios:" << endl;
-		for (float s : lista) {
-			cout << s << endl;
-		}
-	}
-};
-
-
 class ListaIdades: public Lista  {
 	vector<int> lista;
 	int menor, maior, n;
@@ -188,6 +58,7 @@ class ListaIdades: public Lista  {
 			cin >> idade;
 			lista.push_back(idade);
 		}
+		ordena();
 	}
 	
 	void mostraMediana() {
@@ -202,21 +73,11 @@ class ListaIdades: public Lista  {
 	
 	void mostraMenor() {
 		menor = lista[0];
-		for (int i=1; i<n; i++) {
-			if (lista[i] < menor) {
-				menor = lista[i];
-			}
-		}
 		cout << "O menor elemento da lista é: " << menor << endl;
 
 	}
 	void mostraMaior() {
-		maior = lista[0];
-		for (int i=1; i<n; i++) {
-			if (lista[i] > maior) {
-				maior = lista[i];
-			}
-		}
+		maior = lista[n-1];
 		cout << "O maior elemento da lista é: " << maior << endl;
 	}
 
@@ -236,40 +97,11 @@ class ListaIdades: public Lista  {
 			cout << i << endl;
 		}
 	}
-
-	bool compIdade(int i1, int i2) {
-		return i1 < i2;
-	}
-
-	void ordena() {
-		sort(lista.begin(), lista.end(), compIdade);
-	}
-
-	void listarEmOrdem() {
-		ordena();
-
-		cout << "Idades:" << endl;
-		for (int i : lista) {
-			cout << i << endl;
-		}
-	}
 };
  
 int main () {
 	vector<Lista*> listaDeListas;
-	
-	ListaNomes listaNomes;
-	listaNomes.entradaDeDados();
-	listaDeListas.push_back(&listaNomes);
-	
-	ListaDatas listaDatas;
-	listaDatas.entradaDeDados();
-	listaDeListas.push_back(&listaDatas);
-	
-	ListaSalarios listaSalarios;
-	listaSalarios.entradaDeDados();
-	listaDeListas.push_back(&listaSalarios);
-	
+
 	ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
