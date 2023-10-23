@@ -93,7 +93,7 @@ class ListaDatas  {
 	}
 };
 
-class ListaSalarios  {
+class ListaSalarios : public Lista {
 	vector<float> lista;
 	
 	public:
