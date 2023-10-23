@@ -69,7 +69,15 @@ class ListaNomes : public Lista{
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+		string menor;
+
+		for (string s: lista) {
+			if (s < menor) {
+				menor = s;
+			}
+		}
+
+		cout << "Menor nome: " << menor << endl;
 	}
 	void mostraMaior() {
 		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
