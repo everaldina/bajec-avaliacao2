@@ -152,6 +152,12 @@ class ListaSalarios : public Lista {
 			
 	void mostraMediana() {
 		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
+		int meio = this->lista.size()/2;
+		if (this->lista.size()%2==0) {
+			cout << (this->lista[meio-1] + this->lista[meio])/2 << endl;
+		} else {
+			cout << this->lista[meio] << endl;
+		}
 	}
 	
 	void mostraMenor() {
