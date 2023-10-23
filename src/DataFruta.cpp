@@ -69,7 +69,7 @@ class ListaNomes {
 		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
 	}
 
-	bool compNome(string s1, string s2) {
+	static bool compNome(string s1, string s2) {
 		return s1 < s2;
 	}
 
@@ -112,7 +112,7 @@ class ListaDatas  {
 		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
 	}
 
-	bool compData(Data d1, Data d2) {
+	static bool compData(Data d1, Data d2) {
 		return Data::compara(d1, d2) < 0;
 	}
 
@@ -155,7 +155,7 @@ class ListaSalarios  {
 		cout << "aqui vai mostrar o maior dos salarios" << endl;
 	}
 
-	bool compSalario(float s1, float s2) {
+	static bool compSalario(float s1, float s2) {
 		return s1 < s2;
 	}
 
@@ -199,7 +199,7 @@ class ListaIdades  {
 		cout << "aqui vai mostrar a maior das idades" << endl;
 	}
 
-	bool compIdade(int i1, int i2) {
+	static bool compIdade(int i1, int i2) {
 		return i1 < i2;
 	}
 
