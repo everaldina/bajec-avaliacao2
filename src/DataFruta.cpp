@@ -168,6 +168,9 @@ class ListaSalarios : public Lista {
 	}
 	void mostraMaior() {
 		cout << "aqui vai mostrar o maior dos salarios" << endl;
+		//como a lista ja ta ordenada, o maior é o ultimo
+		cout << "O maior salario é:";
+		cout << this->lista[this->lista.size()-1] << endl;
 	}
 
 	static bool compSalario(float s1, float s2) {
