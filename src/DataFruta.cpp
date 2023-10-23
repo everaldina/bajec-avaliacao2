@@ -44,7 +44,7 @@ class Lista {
 	virtual void listarEmOrdem() = 0;
 };
 
-class ListaNomes {
+class ListaNomes : public Lista{
 	vector<string> lista;
 	
 	public:
@@ -55,18 +55,29 @@ class ListaNomes {
 	solicita a digitação de cada um deles
 	*/	
 	void entradaDeDados() {
-		lista.push_back("Teste");
+		int n;
+		string nome;
+
+		cout << "Quantos nomes você quer digitar? ";
+		cin >> n;
+		cin.ignore();
+		for (int i=0; i<n; i++){
+			cout << "Digite o nome " << i+1 << ": ";
+			getline(cin, nome);
+			lista.push_back(nome);
+		}
+		ordena();
 	}
 		
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
+		if(lista.size() % 2 == 0)
+			cout << "Mediana: " << lista[(lista.size()/2) - 1] << endl;
+		else
+			cout << "Mediana: " << lista[(lista.size()/2)] << endl;
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
-	}
-	void mostraMaior() {
-		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+		cout << "Menor nome: " << lista[0] << endl;
 	}
 
 	static bool compNome(string s1, string s2) {
