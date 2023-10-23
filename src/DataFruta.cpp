@@ -59,11 +59,10 @@ class ListaNomes {
 	}
 	
 	void mostraMediana() {
-		string mediana;
-		
-
-
-		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
+		if(lista.size() % 2 == 0)
+			cout << "Mediana: " << lista[(lista.size()/2) - 1] << endl;
+		else
+			cout << "Mediana: " << lista[(lista.size()/2)] << endl;
 	}
 	
 	void mostraMenor() {
