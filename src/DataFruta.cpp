@@ -104,7 +104,16 @@ class ListaSalarios : public Lista {
 	solicita a digitação de cada um deles
 	*/	
 	void entradaDeDados() {
-		
+		cout << "Quantos elementos vão existir na lista? ";
+		int n;
+		cin >> n;
+		for (int i=0; i<n; i++) {
+			cout << "Digite o " << i+1 << "o. elemento: ";
+			float x;
+			cin >> x;
+			this->lista.push_back(x);
+		}
+		//apos a entrada de dados, vou ordenar a lista
 	}
 			
 	void mostraMediana() {
