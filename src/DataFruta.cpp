@@ -46,15 +46,29 @@ class ListaNomes {
 	
 	public:
 	void entradaDeDados() {
-		lista.push_back("Teste");
+		int n;
+		string nome;
+
+		cout << "Quantos nomes você quer digitar?" << endl;
+		cin >> n;
+		for (int i=0; i<n; i++){
+			cout << "Digite o nome " << i+1 << endl;
+			getline(cin, nome);
+			lista.push_back(nome);
+		}
 	}
 	
 	void mostraMediana() {
+		string mediana;
+
+		
+
+
 		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
 	}
 	
 	void mostraMenor() {
-		string menor;
+		string menor = lista[0];
 
 		for (string s: lista) {
 			if (s < menor) {
@@ -64,8 +78,9 @@ class ListaNomes {
 
 		cout << "Menor nome: " << menor << endl;
 	}
+
 	void mostraMaior() {
-		string maior;
+		string maior = lista[0];
 
 		for (string s: lista) {
 			if (s > maior)
@@ -114,13 +129,25 @@ class ListaDatas  {
  
 int main () {
 	vector<Lista*> listaDeListas;
-
+	
+	ListaNomes listaNomes;
+	listaNomes.entradaDeDados();
+	listaDeListas.push_back(&listaNomes);
+	
+	ListaDatas listaDatas;
+	listaDatas.entradaDeDados();
+	listaDeListas.push_back(&listaDatas);
+	
+	ListaSalarios listaSalarios;
+	listaSalarios.entradaDeDados();
+	listaDeListas.push_back(&listaSalarios);
+	
 	ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
 	
 	for (Lista* l : listaDeListas) {
-		l->mostraMediana();
+		//l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
 	}
