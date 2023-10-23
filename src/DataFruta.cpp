@@ -50,20 +50,29 @@ class ListaNomes {
 	}
 	
 	void mostraMediana() {
-		int mediana;
-		if (n%2 == 0) {
-			mediana = (lista[n/2] + lista[(n/2)-1])/2;
-		} else {
-			mediana = lista[n/2];
-		}
-		cout << "A mediana da lista é: " << mediana << endl;
+		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+		string menor;
+
+		for (string s: lista) {
+			if (s < menor) {
+				menor = s;
+			}
+		}
+
+		cout << "Menor nome: " << menor << endl;
 	}
 	void mostraMaior() {
-		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+		string maior;
+
+		for (string s: lista) {
+			if (s > maior)
+				maior = s;
+		}
+
+		cout << "Maior nome: " << maior << endl;
 	}
 };
 
