@@ -53,6 +53,7 @@ dkms.conf
 
 #pasta
 .vscode
+src/output
 
 #pasta
 .vscode
