@@ -39,8 +39,6 @@ class Lista {
 	virtual void mostraMediana() =0;
 	virtual void mostraMenor() =0;
 	virtual void mostraMaior() =0;
-	virtual void ordena() = 0;
-	virtual void listarEmOrdem() = 0;
 };
 
 class ListaNomes {
@@ -62,9 +60,25 @@ class ListaNomes {
 	}
 	
 	void mostraMenor() {
-		menor = lista[0];
-		cout << "O menor elemento da lista é: " << menor << endl;
+		cout << "Aqui vai mostrar o primeiro nome alfabeticamente" << endl;
+	}
+	void mostraMaior() {
+		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+	}
+};
 
+class ListaDatas  {
+	vector<Data> lista;
+	
+	public:
+		
+	/*
+	O método abaixo pergunta ao usuários quantos
+	elementos vão existir na lista e depois
+	solicita a digitação de cada um deles
+	*/	
+	void entradaDeDados() {
+		
 	}
 	void mostraMaior() {
 		maior = lista[n-1];
