@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -39,6 +40,8 @@ class Lista {
 	virtual void mostraMediana() =0;
 	virtual void mostraMenor() =0;
 	virtual void mostraMaior() =0;
+	virtual void ordena() = 0;
+	virtual void listarEmOrdem() = 0;
 };
 
 class ListaNomes: public Lista {
@@ -64,6 +67,23 @@ class ListaNomes: public Lista {
 	}
 	void mostraMaior() {
 		cout << "aqui vai mostrar o ultimo nome alfabeticamente" << endl;
+	}
+
+	bool compNome(string s1, string s2) {
+		return s1 < s2;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compNome);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Nomes:" << endl;
+		for (string s : lista) {
+			cout << s << endl;
+		}
 	}
 };
 
@@ -91,6 +111,23 @@ class ListaDatas: public Lista  {
 	void mostraMaior() {
 		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
 	}
+
+	bool compData(Data d1, Data d2) {
+		return Data::compara(d1, d2) < 0;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compData);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Datas:" << endl;
+		for (Data d : lista) {
+			cout << d.toString() << endl;
+		}
+	}
 };
 
 class ListaSalarios: public Lista  {
@@ -116,6 +153,23 @@ class ListaSalarios: public Lista  {
 	}
 	void mostraMaior() {
 		cout << "aqui vai mostrar o maior dos salarios" << endl;
+	}
+
+	bool compSalario(float s1, float s2) {
+		return s1 < s2;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compSalario);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Salarios:" << endl;
+		for (float s : lista) {
+			cout << s << endl;
+		}
 	}
 };
 
@@ -164,6 +218,23 @@ class ListaIdades: public Lista  {
 			}
 		}
 		cout << "O maior elemento da lista é: " << maior << endl;
+	}
+
+	bool compIdade(int i1, int i2) {
+		return i1 < i2;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compIdade);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Idades:" << endl;
+		for (int i : lista) {
+			cout << i << endl;
+		}
 	}
 };
  
