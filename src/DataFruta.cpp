@@ -47,16 +47,7 @@ class ListaNomes {
 	
 	public:
 	void entradaDeDados() {
-		int n;
-		string nome;
-
-		cout << "Quantos nomes você quer digitar?" << endl;
-		cin >> n;
-		for (int i=0; i<n; i++){
-			cout << "Digite o nome " << i+1 << endl;
-			getline(cin, nome);
-			lista.push_back(nome);
-		}
+		lista.push_back("Teste");
 	}
 	
 	void mostraMediana() {
@@ -92,7 +83,7 @@ class ListaNomes {
 	}
 };
 
-class ListaDatas  {
+class ListaDatas  : public Lista{
 	vector<Data> lista;
 	
 	public:
@@ -103,11 +94,35 @@ class ListaDatas  {
 	solicita a digitação de cada um deles
 	*/	
 	void entradaDeDados() {
-		
+		int n;
+		cout << "Quantas datas terá a lista?" << endl;
+		cin >> n;
+
+		for (int i = 0; i < n; i++) {
+			int dia, mes, ano;
+
+			cout << "Digite a data " << i << ":" << endl;
+			
+			cout << "Digite o dia" << endl;
+			cin >> dia;
+			cout << "Digite o mes" << endl;
+			cin >> mes;
+			cout << "Digite o ano" << endl;
+			cin >> ano;
+
+			lista.push_back(Data(dia, mes, ano));
+		}
+	}
+	
+	void mostraMediana() {
+		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
+	}
+	
+	void mostraMenor() {
+		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
 	}
 	void mostraMaior() {
-		maior = lista[n-1];
-		cout << "O maior elemento da lista é: " << maior << endl;
+		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
 	}
 
 	static bool compData(Data d1, Data d2) {
