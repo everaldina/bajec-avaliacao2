@@ -174,29 +174,41 @@ class ListaSalarios  {
 };
 
 
-class ListaIdades  {
+class ListaIdades: public Lista  {
 	vector<int> lista;
+	int menor, maior, n;
 	
 	public:
-		
-		/*
-	O método abaixo pergunta ao usuários quantos
-	elementos vão existir na lista e depois
-	solicita a digitação de cada um deles
-	*/	
 	void entradaDeDados() {
-		
+		cout << "Quantos elementos terá a lista de idades?" << endl;
+		cin >> n;
+		for (int i=0; i<n; i++) {
+			int idade;
+			cout << "Digite a idade " << i+1 << endl;
+			cin >> idade;
+			lista.push_back(idade);
+		}
+		ordena();
 	}
 	
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
+		int mediana;
+		if (n%2 == 0) {
+			mediana = (lista[n/2] + lista[(n/2)-1])/2;
+		} else {
+			mediana = lista[n/2];
+		}
+		cout << "A mediana da lista é: " << mediana << endl;
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar a menor das idades" << endl;
+		menor = lista[0];
+		cout << "O menor elemento da lista é: " << menor << endl;
+
 	}
 	void mostraMaior() {
-		cout << "aqui vai mostrar a maior das idades" << endl;
+		maior = lista[n-1];
+		cout << "O maior elemento da lista é: " << maior << endl;
 	}
 
 	static bool compIdade(int i1, int i2) {
@@ -208,15 +220,13 @@ class ListaIdades  {
 	}
 
 	void listarEmOrdem() {
-		ordena();
-
 		cout << "Idades:" << endl;
 		for (int i : lista) {
 			cout << i << endl;
 		}
 	}
 };
- 
+
 int main () {
 	vector<Lista*> listaDeListas;
 	
@@ -243,4 +253,3 @@ int main () {
 	}
 	
 }
-    
