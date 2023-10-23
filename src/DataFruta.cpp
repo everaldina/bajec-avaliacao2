@@ -7,6 +7,7 @@ using namespace std;
 
 class Data {
 	int dia, mes, ano;
+	
 	public:
 	
 	/*
