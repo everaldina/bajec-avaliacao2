@@ -60,7 +60,6 @@ class ListaNomes {
 	
 	void mostraMediana() {
 		string mediana;
-
 		
 
 
@@ -68,26 +67,28 @@ class ListaNomes {
 	}
 	
 	void mostraMenor() {
-		string menor = lista[0];
-
-		for (string s: lista) {
-			if (s < menor) {
-				menor = s;
-			}
-		}
-
-		cout << "Menor nome: " << menor << endl;
+		cout << "Menor nome: " << lista[0] << endl;
 	}
 
 	void mostraMaior() {
-		string maior = lista[0];
+		cout << "Maior nome: " << lista[lista.size() - 1] << endl;
+	}
 
-		for (string s: lista) {
-			if (s > maior)
-				maior = s;
+	static bool compNome(string s1, string s2) {
+		return s1 < s2;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compNome);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Nomes:" << endl;
+		for (string s : lista) {
+			cout << s << endl;
 		}
-
-		cout << "Maior nome: " << maior << endl;
 	}
 };
 
@@ -107,6 +108,93 @@ class ListaDatas  {
 	void mostraMaior() {
 		maior = lista[n-1];
 		cout << "O maior elemento da lista é: " << maior << endl;
+	}
+
+	static bool compData(Data d1, Data d2) {
+		return Data::compara(d1, d2) < 0;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compData);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Datas:" << endl;
+		for (Data d : lista) {
+			cout << d.toString() << endl;
+		}
+	}
+};
+
+class ListaSalarios  {
+	vector<float> lista;
+	
+	public:
+	
+	/*
+	O método abaixo pergunta ao usuários quantos
+	elementos vão existir na lista e depois
+	solicita a digitação de cada um deles
+	*/	
+	void entradaDeDados() {
+		
+	}
+			
+	void mostraMediana() {
+		cout << "Aqui vai mostrar a mediana da lista de salarios" << endl;
+	}
+	
+	void mostraMenor() {
+		cout << "Aqui vai mostrar o menor dos salarios" << endl;
+	}
+	void mostraMaior() {
+		cout << "aqui vai mostrar o maior dos salarios" << endl;
+	}
+
+	static bool compSalario(float s1, float s2) {
+		return s1 < s2;
+	}
+
+	void ordena() {
+		sort(lista.begin(), lista.end(), compSalario);
+	}
+
+	void listarEmOrdem() {
+		ordena();
+
+		cout << "Salarios:" << endl;
+		for (float s : lista) {
+			cout << s << endl;
+		}
+	}
+};
+
+
+class ListaIdades  {
+	vector<int> lista;
+	
+	public:
+		
+		/*
+	O método abaixo pergunta ao usuários quantos
+	elementos vão existir na lista e depois
+	solicita a digitação de cada um deles
+	*/	
+	void entradaDeDados() {
+		
+	}
+	
+	void mostraMediana() {
+		cout << "Aqui vai mostrar a mediana da lista de idades" << endl;
+	}
+	
+	void mostraMenor() {
+		cout << "Aqui vai mostrar a menor das idades" << endl;
+	}
+	void mostraMaior() {
+		cout << "aqui vai mostrar a maior das idades" << endl;
 	}
 
 	static bool compIdade(int i1, int i2) {
