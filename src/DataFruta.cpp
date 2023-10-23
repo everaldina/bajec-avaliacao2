@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -44,21 +43,12 @@ class Lista {
 	virtual void listarEmOrdem() = 0;
 };
 
-class ListaIdades: public Lista  {
-	vector<int> lista;
-	int menor, maior, n;
+class ListaNomes {
+	vector<string> lista;
 	
 	public:
 	void entradaDeDados() {
-		cout << "Quantos elementos terá a lista de idades?" << endl;
-		cin >> n;
-		for (int i=0; i<n; i++) {
-			int idade;
-			cout << "Digite a idade " << i+1 << endl;
-			cin >> idade;
-			lista.push_back(idade);
-		}
-		ordena();
+		lista.push_back("Teste");
 	}
 	
 	void mostraMediana() {
