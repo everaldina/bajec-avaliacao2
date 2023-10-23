@@ -122,10 +122,27 @@ class ListaDatas  : public Lista{
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
+		Data menor = lista[0];
+
+		for (Data d : lista) {
+			if (Data::compara(d, menor) == -1) {
+				menor = d;
+			}
+		}
+
+		cout << "Menor: " << menor.toString() << endl;
 	}
+
 	void mostraMaior() {
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
+		Data maior = lista[0];
+
+		for (Data d : lista) {
+			if (Data::compara(d, maior) == 1) {
+				maior = d;
+			}
+		}
+
+		cout << "Maior: " << maior.toString() << endl;
 	}
 
 	static bool compData(Data d1, Data d2) {
