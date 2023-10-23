@@ -57,7 +57,6 @@ class ListaNomes {
 	void mostraMenor() {
 		cout << "Menor nome: " << lista[0] << endl;
 	}
-
 	void mostraMaior() {
 		cout << "Maior nome: " << lista[lista.size() - 1] << endl;
 	}
