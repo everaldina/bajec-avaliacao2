@@ -51,10 +51,7 @@ class ListaNomes {
 	}
 	
 	void mostraMediana() {
-		if(lista.size() % 2 == 0)
-			cout << "Mediana: " << lista[(lista.size()/2) - 1] << endl;
-		else
-			cout << "Mediana: " << lista[(lista.size()/2)] << endl;
+		cout << "Aqui vai mostrar a mediana da lista de strings" << endl;
 	}
 	
 	void mostraMenor() {
@@ -115,7 +112,13 @@ class ListaDatas  : public Lista{
 	}
 	
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
+		int index, tam;
+
+		tam = lista.size();
+
+		tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
+
+		cout << "Mediana: " << lista[index].toString() << endl;
 	}
 	
 	void mostraMenor() {
