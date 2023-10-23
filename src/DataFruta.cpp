@@ -152,7 +152,7 @@ class ListaSalarios : public Lista {
 			cin >> x;
 			this->lista.push_back(x);
 		}
-		//apos a entrada de dados, vou ordenar a lista
+		this->ordena();
 	}
 			
 	void mostraMediana() {
