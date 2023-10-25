@@ -71,7 +71,18 @@ class ListaNomes {
 	
 	public:
 	void entradaDeDados() {
-		lista.push_back("Teste");
+		int n;
+		string nome;
+
+		cout << "Quantos nomes você quer digitar?: ";
+		cin >> n;
+		cin.ignore();
+		for (int i=0; i<n; i++){
+			cout << "Digite o nome " << i+1 << ": ";
+			getline(cin, nome);
+			lista.push_back(nome);
+		}
+		ordena();
 	}
 	
 	void mostraMediana() {
@@ -118,14 +129,14 @@ class ListaDatas  : public Lista{
 		int n;
 		string data;
 		string aux = "";
-		cout << "Quantas datas terá a lista?" << endl;
+		cout << "Quantas datas terá a lista?: ";
 		cin >> n;
 
 		for (int i = 0; i < n; i++) {
 			int dia, mes, ano;
 			int flag = 1;
 
-			cout << "Digite a data " << i + 1 << ":" << endl;
+			cout << "Digite a data " << i + 1 << ": ";
 			cin >> data;
 
 			for(int i = 0; i < data.length(); i++) {
@@ -211,12 +222,12 @@ class ListaSalarios : public Lista {
 	public:
 
 	void entradaDeDados() {
-		cout << "Quantos elementos vão existir na lista? ";
+		cout << "Quantos salários vão existir na lista?: ";
 		cout << fixed << setprecision(2); //para mostrar sempre 2 casas decimais
 		int n;
 		cin >> n;
 		for (int i=0; i<n; i++) {
-			cout << "Digite o " << i+1 << "o. elemento: ";
+			cout << "Digite o " << i+1 << "o. salário: ";
 			float x;
 			cin >> x;
 			this->lista.push_back(x);
@@ -226,8 +237,8 @@ class ListaSalarios : public Lista {
 			
 	void mostraMediana() {
 		int meio = this->lista.size()/2;
+		cout << "A mediana é: ";
 		if (this->lista.size()%2==0) {
-			cout << "A mediana é:" << endl;
 			cout << (this->lista[meio-1] + this->lista[meio])/2 << endl;
 		} else {
 			cout << this->lista[meio] << endl;
@@ -263,8 +274,7 @@ class ListaSalarios : public Lista {
 	}
 };
 
-
-class ListaIdades  {
+class ListaIdades: public Lista  {
 	vector<int> lista;
 	
 	public:
@@ -275,7 +285,15 @@ class ListaIdades  {
 	solicita a digitação de cada um deles
 	*/	
 	void entradaDeDados() {
-		
+		cout << "Quantos elementos terá a lista de idades?: ";
+		cin >> n;
+		for (int i=0; i<n; i++) {
+			int idade;
+			cout << "Digite a idade " << i+1 << ": ";
+			cin >> idade;
+			lista.push_back(idade);
+		}
+		ordena();
 	}
 	
 	void mostraMediana() {
@@ -313,22 +331,27 @@ int main () {
 	ListaNomes listaNomes;
 	listaNomes.entradaDeDados();
 	listaDeListas.push_back(&listaNomes);
+	cout << endl;
 	
 	ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
 	listaDeListas.push_back(&listaDatas);
+	cout << endl;
 	
 	ListaSalarios listaSalarios;
 	listaSalarios.entradaDeDados();
 	listaDeListas.push_back(&listaSalarios);
+	cout << endl;
 	
 	ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
+	cout << endl;
 	
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
+		cout << endl;
 	}
 }
