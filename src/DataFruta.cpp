@@ -81,7 +81,7 @@ class ListaNomes : public Lista{
 		int n;
 		string nome;
 
-		cout << "Quantos nomes você quer digitar?: ";
+		cout << "Quantos nomes tera a lista?: ";
 		cin >> n;
 		cin.ignore();
 		for (int i=0; i<n; i++){
@@ -94,9 +94,9 @@ class ListaNomes : public Lista{
 		
 	void mostraMediana() {
 		if(lista.size() % 2 == 0)
-			cout << "Mediana: " << lista[(lista.size()/2) - 1] << endl;
+			cout << "Mediana dos nomes: " << lista[(lista.size()/2) - 1] << endl;
 		else
-			cout << "Mediana: " << lista[(lista.size()/2)] << endl;
+			cout << "Mediana dos nomes: " << lista[(lista.size()/2)] << endl;
 	}
 	
 	void mostraMenor() {
@@ -139,7 +139,7 @@ class ListaDatas  : public Lista{
 		int n;
 		string data;
 		string aux = "";
-		cout << "Quantas datas terá a lista?: ";
+		cout << "Quantas datas tera a lista?: ";
 		cin >> n;
 
 		for (int i = 0; i < n; i++) {
@@ -182,7 +182,7 @@ class ListaDatas  : public Lista{
 		tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
 
 		ordena();
-		cout << "Mediana: " << lista[index].toString() << endl;
+		cout << "Mediana das datas: " << lista[index].toString() << endl;
 	}
 	
 	void mostraMenor() {
@@ -194,7 +194,7 @@ class ListaDatas  : public Lista{
 			}
 		}
 
-		cout << "Menor: " << menor.toString() << endl;
+		cout << "Menor data: " << menor.toString() << endl;
 	}
 
 	void mostraMaior() {
@@ -206,7 +206,7 @@ class ListaDatas  : public Lista{
 			}
 		}
 
-		cout << "Maior: " << maior.toString() << endl;
+		cout << "Maior data: " << maior.toString() << endl;
 	}
 
 	static bool compData(Data d1, Data d2) {
@@ -233,12 +233,12 @@ class ListaSalarios : public Lista {
 	public:
 
 	void entradaDeDados() {
-		cout << "Quantos salários vão existir na lista?: ";
+		cout << "Quantos salarios tera a lista?: ";
 		cout << fixed << setprecision(2); //para mostrar sempre 2 casas decimais
 		int n;
 		cin >> n;
 		for (int i=0; i<n; i++) {
-			cout << "Digite o " << i+1 << "o. salário: ";
+			cout << "Digite o salario " << i + 1 << ": ";
 			float x;
 			cin >> x;
 			this->lista.push_back(x);
@@ -248,7 +248,7 @@ class ListaSalarios : public Lista {
 			
 	void mostraMediana() {
 		int meio = this->lista.size()/2;
-		cout << "A mediana é: ";
+		cout << "Mediana dos salarios: ";
 		if (this->lista.size()%2==0) {
 			cout << (this->lista[meio-1] + this->lista[meio])/2 << endl;
 		} else {
@@ -258,12 +258,12 @@ class ListaSalarios : public Lista {
 	
 	void mostraMenor() {
 		//como a lista ja ta ordenada, o menor é o primeiro
-		cout << "O menor salario é:";
+		cout << "Menor salario: ";
 		cout << this->lista[0] << endl;
 	}
 	void mostraMaior() {
 		//como a lista ja ta ordenada, o maior é o ultimo
-		cout << "O maior salario é:";
+		cout << "Maior salario: ";
 		cout << this->lista[this->lista.size()-1] << endl;
 	}
 
@@ -291,7 +291,7 @@ class ListaIdades: public Lista  {
 	
 	public:
 	void entradaDeDados() {
-		cout << "Quantos elementos terá a lista de idades?: ";
+		cout << "Quantas idades tera a lista?: ";
 		cin >> n;
 		for (int i=0; i<n; i++) {
 			int idade;
@@ -309,17 +309,17 @@ class ListaIdades: public Lista  {
 		} else {
 			mediana = lista[n/2];
 		}
-		cout << "A mediana da lista é: " << mediana << endl;
+		cout << "Mediana das idades: " << mediana << endl;
 	}
 	
 	void mostraMenor() {
 		menor = lista[0];
-		cout << "O menor elemento da lista é: " << menor << endl;
+		cout << "Menor idade: " << menor << endl;
 
 	}
 	void mostraMaior() {
 		maior = lista[n-1];
-		cout << "O maior elemento da lista é: " << maior << endl;
+		cout << "Maior idade: " << maior << endl;
 	}
 
 	static bool compIdade(int i1, int i2) {
@@ -367,5 +367,4 @@ int main () {
 		l->mostraMaior();
 		cout << endl;
 	}
-	
 }
