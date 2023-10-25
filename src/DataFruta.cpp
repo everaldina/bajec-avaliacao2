@@ -3,6 +3,8 @@
 #include <cstring>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
+//#include <ctime>
 
 using namespace std;
 
@@ -15,8 +17,27 @@ class Data {
 	Retornará 0 se d1 = d2
 	Retornará +1 se d1 é posterior a d2
 	*/	
-	static int compara(Data d1, Data d2) { 
-		return 0;
+	static int compara(Data d1, Data d2) {
+		time_t tempo1 = 0;
+		time_t tempo2 = 0;
+		
+		tm tm1 = *gmtime(&tempo1);
+		tm tm2 = *gmtime(&tempo2);
+		
+		tm1.tm_mday = d1.dia;
+		tm1.tm_mon = d1.mes - 1;
+		tm1.tm_year = d1.ano - 1900;
+		
+		tm2.tm_mday = d2.dia;
+		tm2.tm_mon = d2.mes - 1;
+		tm2.tm_year = d2.ano - 1900;
+		
+		time_t newt1 = mktime(&tm1);
+		time_t newt2 = mktime(&tm2);
+
+		if(newt1 < newt2) {return -1;}
+		else if(newt1 == newt2) {return -0;}
+		return 1;
 	}
 	
 	Data (int _dia, int _mes, int _ano) {
