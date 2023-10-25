@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <algorithm>
 
@@ -100,20 +101,38 @@ class ListaDatas  : public Lista{
 	*/	
 	void entradaDeDados() {
 		int n;
+		string data;
+		string aux = "";
 		cout << "Quantas datas terá a lista?" << endl;
 		cin >> n;
 
 		for (int i = 0; i < n; i++) {
 			int dia, mes, ano;
+			int flag = 1;
 
 			cout << "Digite a data " << i << ":" << endl;
-			
-			cout << "Digite o dia" << endl;
-			cin >> dia;
-			cout << "Digite o mes" << endl;
-			cin >> mes;
-			cout << "Digite o ano" << endl;
-			cin >> ano;
+			cin >> data;
+
+			for(int i = 0; i < data.length(); i++) {
+
+				if(data[i] == '/') {
+					if(flag == 1){
+						dia = stoi(aux);
+						flag++;
+					}
+					else if(flag == 2){
+						mes = stoi(aux);
+						flag++;
+					}
+					aux = "";
+				}
+				else{
+					aux += data[i];
+				}
+			}
+
+			ano = stoi(aux);
+			aux = "";
 
 			lista.push_back(Data(dia, mes, ano));
 		}
@@ -122,7 +141,7 @@ class ListaDatas  : public Lista{
 	void mostraMediana() {
 		int index, tam;
 
-		tam = lista.size();
+		tam = lista.size()-1;
 
 		tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
 
@@ -261,15 +280,15 @@ class ListaIdades  {
  
 int main () {
 	vector<Lista*> listaDeListas;
-	
+	/*
 	ListaNomes listaNomes;
 	listaNomes.entradaDeDados();
 	listaDeListas.push_back(&listaNomes);
-	
+	*/
 	ListaDatas listaDatas;
 	listaDatas.entradaDeDados();
 	listaDeListas.push_back(&listaDatas);
-	
+	/*
 	ListaSalarios listaSalarios;
 	listaSalarios.entradaDeDados();
 	listaDeListas.push_back(&listaSalarios);
@@ -277,7 +296,7 @@ int main () {
 	ListaIdades listaIdades;
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
-	
+	*/
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
