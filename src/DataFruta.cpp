@@ -36,10 +36,12 @@ class Data {
 
 class Lista {
 	public:
-	virtual void entradaDeDados() =0;
-	virtual void mostraMediana() =0;
-	virtual void mostraMenor() =0;
-	virtual void mostraMaior() =0;
+	virtual void entradaDeDados() = 0;
+	virtual void mostraMediana() = 0;
+	virtual void mostraMenor() = 0;
+	virtual void mostraMaior() = 0;
+	virtual void ordena() = 0;
+	virtual void listarEmOrdem() = 0;
 };
 
 class ListaNomes {
@@ -57,6 +59,7 @@ class ListaNomes {
 	void mostraMenor() {
 		cout << "Menor nome: " << lista[0] << endl;
 	}
+
 	void mostraMaior() {
 		cout << "Maior nome: " << lista[lista.size() - 1] << endl;
 	}
