@@ -8,6 +8,7 @@ using namespace std;
 
 class Data {
 	int dia, mes, ano;
+	
 	public:
 	
 	/*
@@ -99,7 +100,7 @@ class ListaNomes : public Lista{
 	}
 };
 
-class ListaDatas  {
+class ListaDatas  : public Lista{
 	vector<Data> lista;
 	
 	public:
@@ -110,18 +111,59 @@ class ListaDatas  {
 	solicita a digitação de cada um deles
 	*/	
 	void entradaDeDados() {
-		
+		int n;
+		cout << "Quantas datas terá a lista?" << endl;
+		cin >> n;
+
+		for (int i = 0; i < n; i++) {
+			int dia, mes, ano;
+
+			cout << "Digite a data " << i << ":" << endl;
+			
+			cout << "Digite o dia" << endl;
+			cin >> dia;
+			cout << "Digite o mes" << endl;
+			cin >> mes;
+			cout << "Digite o ano" << endl;
+			cin >> ano;
+
+			lista.push_back(Data(dia, mes, ano));
+		}
 	}
 	
 	void mostraMediana() {
-		cout << "Aqui vai mostrar a mediana da lista de datas" << endl;
+		int index, tam;
+
+		tam = lista.size();
+
+		tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
+
+		ordena();
+		cout << "Mediana: " << lista[index].toString() << endl;
 	}
 	
 	void mostraMenor() {
-		cout << "Aqui vai mostrar a primeira data cronologicamente" << endl;
+		Data menor = lista[0];
+
+		for (Data d : lista) {
+			if (Data::compara(d, menor) == -1) {
+				menor = d;
+			}
+		}
+
+		cout << "Menor: " << menor.toString() << endl;
 	}
+
 	void mostraMaior() {
-		cout << "aqui vai mostrar a ultima data cronologicamente" << endl;
+		Data maior = lista[0];
+
+		for (Data d : lista) {
+			if (Data::compara(d, maior) == 1) {
+				maior = d;
+			}
+		}
+
+		cout << "Maior: " << maior.toString() << endl;
 	}
 
 	static bool compData(Data d1, Data d2) {
