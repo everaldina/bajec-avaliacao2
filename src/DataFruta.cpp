@@ -126,7 +126,7 @@ class ListaDatas  : public Lista{
 			int dia, mes, ano;
 			int flag = 1;
 
-			cout << "Digite a data " << i << ":" << endl;
+			cout << "Digite a data " << i + 1 << ":" << endl;
 			cin >> data;
 
 			for(int i = 0; i < data.length(); i++) {
