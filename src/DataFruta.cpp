@@ -64,6 +64,7 @@ class Lista {
 	virtual void mostraMaior() = 0;
 	virtual void ordena() = 0;
 	virtual void listarEmOrdem() = 0;
+	virtual void listarNPrimeiros(int N) = 0;
 };
 
 class ListaNomes {
