@@ -158,6 +158,12 @@ public:
 
 	void listarNPrimeiros(int N)
 	{
+		if (verficaListaVazia())
+		{
+			cout << "Lista de nomes vazia" << endl;
+
+			return;
+		}
 		if (N < 0)
 		{
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -168,15 +174,20 @@ public:
 		{
 			N = lista.size();
 		}
-		else if (this->lista.size() == 0)
-		{
-			cout << "Lista vazia" << endl;
-		}
-		cout << "Nome(s):" << endl;
+		cout << "Nomes(s):" << endl;
 		for (int i = 0; i < N; i++)
 		{
 			cout << "[" << i + 1 << "] " << lista[i] << endl;
 		}
+	}
+
+	bool verficaListaVazia()
+	{
+		if (this->lista.size() == 0)
+		{
+			return true;
+		}
+		return false;
 	}
 };
 
@@ -293,15 +304,23 @@ public:
 	{
 		ordena();
 
-		cout << "Datas:" << endl;
+		cout << "datas:" << endl;
 		for (Data d : lista)
 		{
 			cout << d.toString() << endl;
 		}
 	}
 
+	
+
 	void listarNPrimeiros(int N)
 	{
+		if (verficaListaVazia())
+		{
+			cout << "Lista de datas vazia" << endl;
+
+			return;
+		}
 		if (N < 0)
 		{
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -312,15 +331,20 @@ public:
 		{
 			N = lista.size();
 		}
-		else if (this->lista.size() == 0)
-		{
-			cout << "Lista vazia" << endl;
-		}
-		cout << "Data(s):" << endl;
+		cout << "Datas(s):" << endl;
 		for (int i = 0; i < N; i++)
 		{
 			cout << "[" << i + 1 << "] " << lista[i].toString() << endl;
 		}
+	}
+
+	bool verficaListaVazia()
+	{
+		if (this->lista.size() == 0)
+		{
+			return true;
+		}
+		return false;
 	}
 };
 
@@ -400,7 +424,7 @@ public:
 	{
 		if (verficaListaVazia())
 		{
-			cout << "Lista vazia" << endl;
+			cout << "Lista de salarios vazia" << endl;
 
 			return;
 		}
@@ -413,10 +437,6 @@ public:
 		if (N > lista.size())
 		{
 			N = lista.size();
-		}
-		else if (this->lista.size() == 0)
-		{
-			cout << "Lista vazia" << endl;
 		}
 		cout << "Salario(s):" << endl;
 		for (int i = 0; i < N; i++)
@@ -504,6 +524,12 @@ public:
 
 	void listarNPrimeiros(int N)
 	{
+		if (verficaListaVazia())
+		{
+			cout << "Lista de idade vazia" << endl;
+
+			return;
+		}
 		if (N < 0)
 		{
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -514,15 +540,20 @@ public:
 		{
 			N = lista.size();
 		}
-		else if (this->lista.size() == 0)
-		{
-			cout << "Lista vazia" << endl;
-		}
-		cout << "Idade(s):" << endl;
+		cout << "Idades(s):" << endl;
 		for (int i = 0; i < N; i++)
 		{
 			cout << "[" << i + 1 << "] " << lista[i] << endl;
 		}
+	}
+
+	bool verficaListaVazia()
+	{
+		if (this->lista.size() == 0)
+		{
+			return true;
+		}
+		return false;
 	}
 };
 
@@ -557,8 +588,9 @@ int main()
 		cout << endl;
 	}
 
-	listaDatas.listarNPrimeiros(3);
+	cout << "\n\nListando em ordem:\n" << endl;
 	listaNomes.listarNPrimeiros(3);
+	listaDatas.listarNPrimeiros(3);
 	listaSalarios.listarNPrimeiros(3);
 	listaIdades.listarNPrimeiros(3);
 }
