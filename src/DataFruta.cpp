@@ -160,7 +160,7 @@ public:
 	{
 		if (verficaListaVazia())
 		{
-			cout << "Lista de nomes vazia" << endl;
+			cout << "\nLista de nomes vazia" << endl;
 
 			return;
 		}
@@ -317,7 +317,7 @@ public:
 	{
 		if (verficaListaVazia())
 		{
-			cout << "Lista de datas vazia" << endl;
+			cout << "\nLista de datas vazia" << endl;
 
 			return;
 		}
@@ -424,7 +424,7 @@ public:
 	{
 		if (verficaListaVazia())
 		{
-			cout << "Lista de salarios vazia" << endl;
+			cout << "\nLista de salarios vazia" << endl;
 
 			return;
 		}
@@ -526,7 +526,7 @@ public:
 	{
 		if (verficaListaVazia())
 		{
-			cout << "Lista de idade vazia" << endl;
+			cout << "\nLista de idade vazia" << endl;
 
 			return;
 		}
@@ -581,6 +581,7 @@ int main()
 	listaDeListas.push_back(&listaIdades);
 	cout << endl;
 	
+	cout << "\n\nListando mediana:\n" << endl;
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
@@ -588,7 +589,7 @@ int main()
 		cout << endl;
 	}
 
-	cout << "\n\nListando em ordem:\n" << endl;
+	cout << "\n\nListando em ordem:" << endl;
 	listaNomes.listarNPrimeiros(3);
 	listaDatas.listarNPrimeiros(3);
 	listaSalarios.listarNPrimeiros(3);
