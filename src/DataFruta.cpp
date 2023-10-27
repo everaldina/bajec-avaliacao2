@@ -109,7 +109,6 @@ class ListaNomes {
 	}
 
 	void listarEmOrdem() {
-		ordena();
 
 		cout << "Nomes:" << endl;
 		for (string s : lista) {
