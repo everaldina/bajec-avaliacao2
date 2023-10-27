@@ -557,7 +557,6 @@ int main()
 	listaDeListas.push_back(&listaIdades);
 	cout << endl;
 	
-	cout << "\n\nResultados:\n" << endl;
 	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
