@@ -116,6 +116,7 @@ class ListaNomes {
 			cout << s << endl;
 		}
 	}
+
 	void listarNPrimeiros(int N) {
 		if(N < 0){
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -234,6 +235,7 @@ class ListaDatas  : public Lista{
 			cout << d.toString() << endl;
 		}
 	}
+
 	void listarNPrimeiros(int N) {
 		if(N < 0){
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -308,6 +310,7 @@ class ListaSalarios : public Lista {
 			cout << s << endl;
 		}
 	}
+
 	void listarNPrimeiros(int N) {
 		if(N < 0){
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -384,6 +387,7 @@ class ListaIdades: public Lista  {
 			cout << i << endl;
 		}
 	}
+
 	void listarNPrimeiros(int N) {
 		if(N < 0){
 			cout << "Nao e possivel listar quantidade informada" << endl;
@@ -431,4 +435,10 @@ int main () {
 		l->mostraMaior();
 		cout << endl;
 	}
+
+	listaDatas.listarNPrimeiros(3);
+	listaNomes.listarNPrimeiros(3);
+	listaSalarios.listarNPrimeiros(3);
+	listaIdades.listarNPrimeiros(3);
+
 }
