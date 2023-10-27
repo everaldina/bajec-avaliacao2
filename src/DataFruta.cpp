@@ -123,6 +123,22 @@ class ListaNomes : public Lista{
 			cout << s << endl;
 		}
 	}
+	void listarNPrimeiros(int N) {
+		if(N < 0){
+			cout << "Nao e possivel listar quantidade informada" << endl;
+			return;
+		}
+		cout <<endl;
+		if (N > lista.size()) {
+			N = lista.size();
+		}else if(this->lista.size() == 0){
+			cout << "Lista vazia" << endl;
+		}
+		cout << "Nome(s):" << endl;
+		for (int i = 0; i < N; i++) {
+			cout <<"["<<i+1<<"] " << lista[i] << endl;
+		}
+	}
 };
 
 class ListaDatas  : public Lista{
@@ -225,6 +241,22 @@ class ListaDatas  : public Lista{
 			cout << d.toString() << endl;
 		}
 	}
+	void listarNPrimeiros(int N) {
+		if(N < 0){
+			cout << "Nao e possivel listar quantidade informada" << endl;
+			return;
+		}
+		cout <<endl;
+		if (N > lista.size()) {
+			N = lista.size();
+		}else if(this->lista.size() == 0){
+			cout << "Lista vazia" << endl;
+		}
+		cout << "Data(s):" << endl;
+		for (int i = 0; i < N; i++) {
+			cout <<"["<<i+1<<"] " << lista[i].toString() << endl;
+		}
+	}
 };
 
 class ListaSalarios : public Lista {
@@ -283,6 +315,22 @@ class ListaSalarios : public Lista {
 			cout << s << endl;
 		}
 	}
+	void listarNPrimeiros(int N) {
+		if(N < 0){
+			cout << "Nao e possivel listar quantidade informada" << endl;
+			return;
+		}
+		cout <<endl;
+		if (N > lista.size()) {
+			N = lista.size();
+		}else if(this->lista.size() == 0){
+			cout << "Lista vazia" << endl;
+		}
+		cout << "Salario(s):" << endl;
+		for (int i = 0; i < N; i++) {
+			cout <<"["<<i+1<<"] " << lista[i] << endl;
+		}
+	}
 };
 
 class ListaIdades: public Lista  {
@@ -334,6 +382,22 @@ class ListaIdades: public Lista  {
 		cout << "Idades:" << endl;
 		for (int i : lista) {
 			cout << i << endl;
+		}
+	}
+	void listarNPrimeiros(int N) {
+		if(N < 0){
+			cout << "Nao e possivel listar quantidade informada" << endl;
+			return;
+		}
+		cout <<endl;
+		if (N > lista.size()) {
+			N = lista.size();
+		}else if(this->lista.size() == 0){
+			cout << "Lista vazia" << endl;
+		}
+		cout << "Idade(s):" << endl;
+		for (int i = 0; i < N; i++) {
+			cout <<"["<<i+1<<"] "<< lista[i] << endl;
 		}
 	}
 };
