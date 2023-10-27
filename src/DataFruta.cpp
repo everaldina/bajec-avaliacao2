@@ -57,8 +57,16 @@ public:
 	string toString()
 	{
 		string ret = "";
+		if(dia < 10){
+			ret.append("0");
+		}
 		ret.append(to_string(dia));
-		ret.append("/");
+		if(mes < 10){
+			ret.append("/0");
+		}
+		else{
+			ret.append("/");
+		}
 		ret.append(to_string(mes));
 		ret.append("/");
 		ret.append(to_string(ano));
@@ -111,16 +119,28 @@ public:
 			cout << "Mediana dos nomes: " << lista[(lista.size() / 2) - 1] << endl;
 		else
 			cout << "Mediana dos nomes: " << lista[(lista.size() / 2)] << endl;
+		
+	void mostraMediana() {
+		if(lista.size() > 0){
+			if(lista.size() % 2 == 0)
+				cout << "Mediana dos nomes: " << lista[(lista.size()/2) - 1] << endl;
+			else
+				cout << "Mediana dos nomes: " << lista[(lista.size()/2)] << endl;
+		}else{
+			cout << "Lista de nomes vazia!!!" << endl;
+		}
+	}
+	
+	void mostraMenor() {
+		if(lista.size() > 0){
+			cout << "Menor nome: " << lista[0] << endl;
+		}
 	}
 
-	void mostraMenor()
-	{
-		cout << "Menor nome: " << lista[0] << endl;
-	}
-
-	void mostraMaior()
-	{
-		cout << "Maior nome: " << lista[lista.size() - 1] << endl;
+	void mostraMaior() {
+		if(lista.size() > 0){
+			cout << "Maior nome: " << lista[lista.size() - 1] << endl;
+		}
 	}
 
 	static bool compNome(string s1, string s2)
@@ -222,47 +242,48 @@ public:
 			lista.push_back(Data(dia, mes, ano));
 		}
 	}
+	
+	void mostraMediana() {
+		if(lista.size() > 0){
+			int index, tam;
 
-	void mostraMediana()
-	{
-		int index, tam;
+			tam = lista.size()-1;
 
-		tam = lista.size() - 1;
+			tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
 
-		tam % 2 == 0 ? index = tam / 2 : index = (tam + 1) / 2;
+			ordena();
+			cout << "Mediana das datas: " << lista[index].toString() << endl;
+		}
+		else{
+			cout << "Lista de datas vazia!!!" << endl;
+		}
+	}
+	
+	void mostraMenor() {
+		if(lista.size() > 0){
+			Data menor = lista[0];
+			for (Data d : lista) {
+				if (Data::compara(d, menor) == -1) {
+					menor = d;
+				}
+			}
 
-		ordena();
-		cout << "Mediana das datas: " << lista[index].toString() << endl;
+			cout << "Menor data: " << menor.toString() << endl;
+		}
 	}
 
-	void mostraMenor()
-	{
-		Data menor = lista[0];
+	void mostraMaior() {
+		if(lista.size() > 0){
+			Data maior = lista[0];
 
-		for (Data d : lista)
-		{
-			if (Data::compara(d, menor) == -1)
-			{
-				menor = d;
+			for (Data d : lista) {
+				if (Data::compara(d, maior) == 1) {
+					maior = d;
+				}
 			}
+
+			cout << "Maior data: " << maior.toString() << endl;
 		}
-
-		cout << "Menor data: " << menor.toString() << endl;
-	}
-
-	void mostraMaior()
-	{
-		Data maior = lista[0];
-
-		for (Data d : lista)
-		{
-			if (Data::compara(d, maior) == 1)
-			{
-				maior = d;
-			}
-		}
-
-		cout << "Maior data: " << maior.toString() << endl;
 	}
 
 	static bool compData(Data d1, Data d2)
@@ -330,32 +351,35 @@ public:
 		}
 		this->ordena();
 	}
-
-	void mostraMediana()
-	{
-		int meio = this->lista.size() / 2;
-		cout << "Mediana dos salarios: ";
-		if (this->lista.size() % 2 == 0)
-		{
-			cout << (this->lista[meio - 1] + this->lista[meio]) / 2 << endl;
+			
+	void mostraMediana() {
+		if(lista.size() > 0){
+			int meio = this->lista.size()/2;
+			cout << "Mediana dos salarios: ";
+			if (this->lista.size()%2==0) {
+				cout << (this->lista[meio-1] + this->lista[meio])/2 << endl;
+			} else {
+				cout << this->lista[meio] << endl;
+			}
 		}
-		else
-		{
-			cout << this->lista[meio] << endl;
+		else{
+			cout << "Lista de salarios vazia!!!" << endl;
 		}
 	}
-
-	void mostraMenor()
-	{
-		// como a lista ja ta ordenada, o menor é o primeiro
-		cout << "Menor salario: ";
-		cout << this->lista[0] << endl;
+	
+	void mostraMenor() {
+		//como a lista ja ta ordenada, o menor é o primeiro
+		if(lista.size() > 0){
+			cout << "Menor salario: ";
+			cout << this->lista[0] << endl;
+		}
 	}
-	void mostraMaior()
-	{
-		// como a lista ja ta ordenada, o maior é o ultimo
-		cout << "Maior salario: ";
-		cout << this->lista[this->lista.size() - 1] << endl;
+	void mostraMaior() {
+		//como a lista ja ta ordenada, o maior é o ultimo
+		if(lista.size() > 0){
+			cout << "Maior salario: ";
+			cout << this->lista[this->lista.size()-1] << endl;
+		}
 	}
 
 	static bool compSalario(float s1, float s2)
@@ -437,30 +461,33 @@ public:
 		}
 		ordena();
 	}
-
-	void mostraMediana()
-	{
-		int mediana;
-		if (n % 2 == 0)
-		{
-			mediana = (lista[n / 2] + lista[(n / 2) - 1]) / 2;
+	
+	void mostraMediana() {
+		if(lista.size() > 0){
+			int mediana;
+			if (n%2 == 0) {
+			mediana = (lista[n/2] + lista[(n/2)-1])/2;
+			} else {
+				mediana = lista[n/2];
+			}
+			cout << "Mediana das idades: " << mediana << endl;
 		}
-		else
-		{
-			mediana = lista[n / 2];
+		else{
+			cout << "Lista de idades vazia!!!" << endl;
 		}
-		cout << "Mediana das idades: " << mediana << endl;
 	}
-
-	void mostraMenor()
-	{
-		menor = lista[0];
-		cout << "Menor idade: " << menor << endl;
+	
+	void mostraMenor() {
+		if(lista.size() > 0){
+			menor = lista[0];
+			cout << "Menor idade: " << menor << endl;
+		}
 	}
-	void mostraMaior()
-	{
-		maior = lista[n - 1];
-		cout << "Maior idade: " << maior << endl;
+	void mostraMaior() {
+		if(lista.size() > 0){
+			maior = lista[n-1];
+			cout << "Maior idade: " << maior << endl;
+		}
 	}
 
 	static bool compIdade(int i1, int i2)
@@ -529,9 +556,9 @@ int main()
 	listaIdades.entradaDeDados();
 	listaDeListas.push_back(&listaIdades);
 	cout << endl;
-
-	for (Lista *l : listaDeListas)
-	{
+	
+	cout << "\n\nResultados:\n" << endl;
+	for (Lista* l : listaDeListas) {
 		l->mostraMediana();
 		l->mostraMenor();
 		l->mostraMaior();
